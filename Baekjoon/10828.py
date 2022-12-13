@@ -12,16 +12,23 @@ import sys
 input = sys.stdin.readline
 stack = []
 
+
 def sol():
     stack = []
     N = int(input())
-    
-    for n in range(N):
-        command = input().rstrip()
-        if command == "pop":
-            print(stack.pop() if stack else -1)
-        if command == "push":
-            stack.insert()
 
-    
-    
+    for n in range(N):
+        command = sys.stdin.readline().split()
+        if command[0] == "pop":
+            print(stack.pop() if stack else -1)
+        if command[0] == "push":
+            stack.append(command[1])
+        if command[0] == "size":
+            print(len(stack))
+        if command[0] == "empty":
+            print(0 if stack else 1)
+        if command[0] == "top":
+            print(stack[len(stack)-1] if stack else -1)
+
+
+sol()
